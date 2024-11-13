@@ -1,7 +1,9 @@
+import Model.Chator;
+import Model.Gun_type;
+import Model.*;
 import java.util.*;
 
 public class Control extends Gun_type {
-
     Chator chator_1 = new Chator();
     Chator chator_2 = new Chator();
 
@@ -9,17 +11,18 @@ public class Control extends Gun_type {
         Control c = new Control();
         Scanner sc = new Scanner(System.in);
 
-        c.player(1);
-        c.player(2);
+        c.player();
+        c.player();
 
         c.player_moment();
     }
 
-    void player(int i){
+    void player(){
         Scanner sc = new Scanner(System.in);
-        System.out.print("player"+i+"의 주무기를 선택하세요 ( 1 라이플 , 2 샷건 ) : ");
+        System.out.print("player의 주무기를 선택하세요 ( 1 라이플 , 2 샷건 ) : ");
         int mainWeapon = sc.nextInt();
-        if (mainWeapon == 1){ rifle(i-1); } else { shotgun(i-1); }
+        mainWeapon--;
+        if (mainWeapon == 0){ rifle(mainWeapon); } else { shotgun(mainWeapon); }
 
     }
 
@@ -57,10 +60,10 @@ public class Control extends Gun_type {
 
     void firing(int number) {
         if (number == 0) {
-            chator_1.hp = chator_1.hp - chator_1.evasion(range[0], damage[0]);
+            chator_1.hp = chator_1.hp - chator_1.evasion(range[1], damage[1]);
             System.out.println("player1 의 남은 hp : "+chator_1.hp);
         }else{
-            chator_2.hp = chator_2.hp - chator_2.evasion(range[1], damage[1]);
+            chator_2.hp = chator_2.hp - chator_2.evasion(range[0], damage[0]);
             System.out.println("player2 의 남은 hp : "+chator_2.hp);
         }
     }

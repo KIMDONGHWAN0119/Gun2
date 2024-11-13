@@ -1,7 +1,9 @@
+package Model;
+
 public class Gun {
-    int[] range = new int[2];
-    int[] magazineCount = new int[2];
-    int[] damage = new int[2];
+    public int[] range = new int[2];
+    public int[] magazineCount = new int[2];
+    public int[] damage = new int[2];
 
     void valueChange(int i,int range, int magazineCount, int damage) {
         this.range[i] = range;

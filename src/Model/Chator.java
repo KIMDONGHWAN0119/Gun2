@@ -1,10 +1,10 @@
-import java.util.*;
+package Model;
 
 
 public class Chator {
-    int hp = 100;
+    public int hp = 100;
 
-    int evasion(int range, int damage){
+    public int evasion(int range, int damage){
         double rand = Math.random();
         int randInt = (int)(rand*100)+1;
         if(randInt >= range){
